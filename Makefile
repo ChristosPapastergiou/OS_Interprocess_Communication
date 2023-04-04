@@ -4,7 +4,7 @@ OBJS = Main.o
 
 EXEC = Main
 
-ARGS = TestFile.txt 100 100
+ARGS = TestFile.log 100 100
 
 CFLAGS = -Wall -Werror -g
 
@@ -12,7 +12,7 @@ $(EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $(EXEC) -lpthread
 
 clean:
-	rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJS) $(EXEC) *.txt
 
 run: $(EXEC)
 	./$(EXEC) $(ARGS)

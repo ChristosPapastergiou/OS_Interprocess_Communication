@@ -38,15 +38,15 @@ int main(int argc, char** argv){
     if(argc != 4){
         if(argc < 4){
             printf("Not enough arguments. Try again.\n");
-            return 0;
+            exit(EXIT_FAILURE);
         }
         printf("Too many arguments. Try again.\n");
-        return 0;
+        exit(EXIT_FAILURE);
     }
 
     if(atoi(argv[2]) > BUFFER_MAX_LINES){
         printf("Maximum lines in segment %d. Try again.\n", BUFFER_MAX_LINES);
-        return 0;
+        exit(EXIT_FAILURE);
     }
 
     int document_lines = 0;
@@ -59,11 +59,11 @@ int main(int argc, char** argv){
         }
         if(document_lines <= MINIMUM_DOCUMENT_LINES){
             printf("The total amount of lines are not enough (%d). Need more than 1000. Try again.\n", document_lines);
-            return 0;
+            exit(EXIT_FAILURE);
         }  
     }else{
         printf("Unable to open the file. Try again.\n");
-        return 0;
+        exit(EXIT_FAILURE);
     }
 
     int pid;
@@ -220,5 +220,5 @@ int main(int argc, char** argv){
     free(string);
     free(name_for_log_file);
 
-    return EXIT_SUCCESS;
+    exit(EXIT_SUCCESS);
 }
