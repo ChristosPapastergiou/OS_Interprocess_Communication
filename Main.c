@@ -100,7 +100,7 @@ int main(int argc, char** argv){
     }
 
     shared_memory* shm = (shared_memory*) shmat(shm_id, NULL, 0);
-    if (shm == (void*) IPC_RESULT_ERROR){
+    if(shm == (void*) IPC_RESULT_ERROR){
         perror("Shared memory attach error.");
         exit(EXIT_FAILURE);
     }
